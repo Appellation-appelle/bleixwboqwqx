@@ -12,13 +12,6 @@ on:
 
 jobs:
   claude:
-    if: |
-      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
-      (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude')) ||
-      (github.event_name == 'pull_request_review' && contains(github.event.review.body, '@claude')) ||
-      (github.event_name == 'issues' && (contains(github.event.issue.body, '@claude') || contains(github.event.issue.title, '@claude')))
-    # Si ce job passe par un runner avec pare-feu egress, ajouter
-    # aws-external-anthropic.eu-west-1.api.aws a l'allow list.
     runs-on: ubuntu-latest
     permissions:
       contents: write
